@@ -1,6 +1,11 @@
 package com.hcc.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Assignment {
+    @Id
     private Long id;
     private String status;
     private Integer number;

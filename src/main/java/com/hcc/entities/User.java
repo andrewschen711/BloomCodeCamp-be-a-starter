@@ -3,12 +3,16 @@ package com.hcc.entities;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
+@Entity
 public class User implements UserDetails {
+    @Id
     private Long id;
     private Date cohortStartDate;
     private String username;
