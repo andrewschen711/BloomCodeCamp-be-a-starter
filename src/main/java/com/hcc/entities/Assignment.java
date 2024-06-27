@@ -5,14 +5,15 @@ import javax.persistence.*;
 @Entity
 public class Assignment {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String status;
     private Integer number;
     private String githubUrl;
     private String branch;
     private String reviewVideoUrl;
-    @ManyToOne (fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
     private User codeReviewer;
 

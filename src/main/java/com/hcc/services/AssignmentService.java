@@ -2,6 +2,7 @@ package com.hcc.services;
 
 import com.hcc.dto.AssignmentResponseDto;
 import com.hcc.entities.Assignment;
+import com.hcc.entities.User;
 import com.hcc.repositories.AssignmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,8 @@ public class AssignmentService {
     @Autowired
     AssignmentRepository assignmentRepository;
 
-    public List<AssignmentResponseDto> getAssignmentsByUserId(Long userId) {
-        List<Assignment> assignments = assignmentRepository.findAllByUserId(userId);
+    public List<AssignmentResponseDto> getAssignmentsByUserId(User user) {
+        List<Assignment> assignments = assignmentRepository.findAllByUser(user);
 
         return assignments.stream()
                 .map(AssignmentResponseDto::new)
